@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <title>{% block title %}Finance{% endblock %}</title>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <a href="/">Home</a>
+        <a href="/quote">Quote</a>
+        <a href="/buy">Buy</a>
+        <a href="/sell">Sell</a>
+        <a href="/history">History</a>
+        <a href="/logout" style="float:right;">Logout</a>
+    </div>
+</nav>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<!-- Main Content -->
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 Stock Trading App</p>
+</footer>
+
+</body>
+</html>

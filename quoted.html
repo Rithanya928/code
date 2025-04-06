@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Quoted{% endblock %}
+
+{% block content %}
+<h2>Stock Quote</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Company</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td>${{ stock.price }}</td>
+        </tr>
+    </tbody>
+</table>
+<a href="/quote" class="btn">Get Another Quote</a>
+{% endblock %}
